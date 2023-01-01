@@ -12,9 +12,9 @@ This suggests a separate buffering strategy for reading and writing.
  
 There is one pagebuffer for an entire page. It takes all the writes to the page and keeps it until a pagefault occurs, i.e. writes go beyond the page. It then flushes to the flash, erasing and updateing it and reads the requested page. Alternatively the page erase can be done with a the commit() function. Only changed pages are erased and written.
  
-There is one blockbuffer for reading. If the read is outside the page loaded for write, the blockbuffer is read. All read requests go through the blockbuffer. If the read is inside the page loaded for write, satisfy the read request are satifsfied from there. 
+There is one blockbuffer for reading. If the read is outside the page loaded for write, the blockbuffer is read. All read requests go through the blockbuffer. If the read is inside the page loaded for write, the read request are satifsfied from there. 
 
-Currently there is no check if pages need to be erased. There is also no copy and garbage collect mechanism like in the professional solution. For the use cases of this library, this is not needed.
+Currently there is no check if pages need to be erased on bit level. There is also no copy and garbage collect mechanism like in the professional solution. For the use cases of this library, this is not needed.
 
 Please take notice that this is a hobbyists work with no professional interest. All the code comes with no warranty as stated in the library file. 
 

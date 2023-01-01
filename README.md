@@ -16,7 +16,29 @@ There is one blockbuffer for reading. If the read is outside the page loaded for
 
 Currently there is no check if pages need to be erased. There is also no copy and garbage collect mechanism like in the professional solution. For the use cases of this library, this is not needed.
 
-Please take notice that this is a hobbyists work with no professional interest. All the code comes with no warranty as stated in the library file.
+Please take notice that this is a hobbyists work with no professional interest. All the code comes with no warranty as stated in the library file. 
+
+The following API functions are implemented:
+
+read(): read a byte
+write(): write a byte
+update(): update a byte, identical to same as write()
+state(): the error state of the last transaction
+commit(): force a erase/write cycle to the flush
+end(): identical to commit()
+length(): returns the size of the EEPROM
+
+The API is identical to the EEPROM emulation of the ESPs with the exception of the begin() method.
+
+begin() can be used without arguments. It then builds an 4kB EEPROM assuming a 64kB flash. Alternatively, the EEPROM size and the flash size can be specified as an argument. 
+
+Boards supported:
+
+Tested on XMC1_2GO. Should work on all 64kB boards. 
+
+There is no mechanism implemented to check if the flash blocks used are free. If you fill up your flash with program code and then start the EEPROM it will break.
+
+
 
 
 

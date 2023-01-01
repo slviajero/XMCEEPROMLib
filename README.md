@@ -1,6 +1,6 @@
 # XMCEEPROMLib
 
-This is a poor man's implementation of an EEPROM dummy library for XMC1 boards. These boards have no build in EEPROM but the flash memory can be written from the program code using the xmc_flash API. On this flash memory a EEPROM emulation can be implemented. 
+This is a poor man's implementation of an EEPROM emulation library for XMC1 boards. These boards have no build in EEPROM but the flash memory can be written from the program code using the xmc_flash API. On this flash memory a EEPROM emulation can be implemented. 
 
 This version is much simpler than the Infineon example code for an EEPROM emulation. It has a lower level of flash protection as it was mainly meant for the Iot BASIC interpreter https://github.com/slviajero/tinybasic. Still, the library can be useful for small use cases.
 
